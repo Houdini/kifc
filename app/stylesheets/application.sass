@@ -1,0 +1,446 @@
+@import "compass/utilities/lists/horizontal-list"
+@import "compass/css3/background-clip"
+@import "blueprint/typography"
+@import "compass/css3/border-radius"
+@import "blueprint/liquid"
+@import "compass/layout/sticky-footer"
+
+$bg-color: white
+$blue: #0683bb
+$bg-blue: #049bdb
+$blue-gray: #434752
+$gray: #ededed
+$pink: #b20975
+$deep-blue: #0026ff
+
+$yellow-dark: #b4711d
+$yellow-light: #ffd97d
+
+$blue-light: #6ac5f0
+$blue-dark: #0264a1
+
+$blueprint-liquid-grid-columns: 9
+$blueprint-liquid-grid-width: 9%
+
+$global-left-margin: 5%
+$main-text-width: 600px
+
+$paragraph-width: 90%
+
+@mixin thumbnail($img_width)
+  /* Компенсируем отступы между float-блоками, чтобы они занимали все доступное пространство
+  margin: 0em 0 1em 0em
+  /* Выравнивание по центру
+  text-align: left
+  .thumbnail
+    text-decoration: none
+    display: -moz-inline-box
+    display: inline-block
+    vertical-align: top
+    text-align: center
+    margin: 10px 5px 0 0em
+    .r
+      width: $img_width
+      float: left
+      height: $img_width/1.7 + 10px
+      .wraptocenter
+        display: table-cell
+        text-align: center
+        vertical-align: middle
+        height: 50px
+        *
+          vertical-align: middle
+        img
+          width: $img_width
+          vertical-align: middle
+
+.thumbnailsh1
+  +thumbnail(160px)
+
+.thumbnailsh2
+  +thumbnail(200px)
+  .thumbnail
+    .r
+      height: 80px !important
+
+.thumbnailsh3
+  +thumbnail(100px)
+
+.thumbnailsh4
+  +thumbnail(50px)
+  .thumbnail
+    margin-right: 15px
+    .r
+      height: 70px !important
+
+
+body
+  background-color: $bg-color
+  margin: 0
+  +blueprint-typography(true)
+  img
+    border: none
+  a
+    color: $blue-dark
+.blue-white-gradient
+  width: 100%
+  height: 73px
+  background: url('/images/blue-white-gradient.png') 0 0 repeat-x
+  position: absolute
+  z-index: -10
+.gray-bg
+  background-color: $gray
+  padding: 10px 10px 10px 10px
+  height: 100% !important
+  clear: both
+  @include border-radius(6px, 6px)  
+.menu
+  padding: 0 
+  background-color: $blue-gray
+  .nav
+    margin: 0 0 0 $global-left-margin
+    ul
+      +horizontal-list
+      li
+        padding: 5px 0 5px 0
+        a, span
+          margin: 12px
+          color: white
+          text-decoration: none
+          letter-spacing: 1px
+      li.active
+        background-color: $bg-blue
+        a, span
+          color: white
+      li:hover
+        @extend li.active
+      .reg-li
+        a
+          color: #ff5a00
+      .addon
+        border-left: 1px dotted $bg-blue
+.body-wrapper
+  margin-left: $global-left-margin
+  h1.logo
+    margin-left: -30px
+    font-size: 2.8em
+    padding-top: 0.5em
+    padding-bottom: 0.4em
+    font-family: 'Trebuchet MS', Arial, sans-serif
+    img
+      top: 26px
+      margin-bottom: 15px
+      padding-right: 10px
+      position: relative
+    a
+      text-decoration: none
+      color: $blue-dark
+  .main-text
+    padding: 10px
+    margin-left: 0
+    .col1
+      +column(2)
+      h2
+        margin-bottom: 0.1em
+        line-height: 1em
+    .col2
+      +column(4)
+    .col3
+      padding-left: 2%
+      +column(3, true)
+    .col4
+      +column(7, true)
+    .col_full
+      +column(9)
+      h1
+        border-bottom: 1px solid $blue-dark
+        font-size: 2em
+        color: $blue-dark
+        margin-bottom: 1em
+      h2
+        color: $blue-dark
+        a
+          color: inherit
+    h2
+      color: $blue-dark
+      font-family: Times New Roman
+    ul, p
+      background-color: $bg-color
+      width: $paragraph-width
+    p
+      padding-left: 1em
+    blockquote
+      background-color: #112a3a
+      color: white
+      padding: 10px
+      font-size: 1.2em
+.open
+  @extend .gray-bg
+  *
+    background-color: inherit !important
+  p
+    width: $paragraph-width !important
+    margin-bottom: 0.3em
+  h2
+    margin-bottom: 0em
+    cursor: pointer
+    line-height: 0.9em
+    padding-top: 0.3em
+    padding-bottom: 0.3em
+  .hidden
+    display: none
+  .close-link
+    display: none
+.block
+  margin-bottom: 3em
+  h3, .conditions .banner
+    font-family: Times New Roman
+    background-color: $blue-dark
+    color: white
+    padding: 7px
+    margin-bottom: 0.5em
+    font-size: 2em
+    margin-left: 0
+    @include border-radius(6px, 6px)
+    a
+      color: inherit
+      text-decoration: inherit
+
+  div
+    height: 50px
+    margin-bottom: 20px
+    .name
+      color: $bg-blue
+      font-size: 1.2em
+      a
+        text-decoration: none
+        color: inherit
+    .job
+      display: inline
+    .position
+      font-size: 12px
+    img
+      float: left
+      margin-right: 5px
+  .conditions
+    height: 100%
+    .banner
+      background-color: #a20606
+    h3
+      color: $blue
+      margin: 0 0 10px 8px
+      padding: 0
+      background-color: transparent
+      border: none
+      font-size: 1.8em
+    p
+      margin-bottom: 0.8em
+      width: $paragraph-width
+      background-color: inherit
+      span.description
+        color: gray
+      em
+        font-size: 1.3em
+        color: $blue
+    p.important
+      font-weight: bold
+      strong
+        color: red
+  .time
+    font-size: 1.5em
+    @extend p.no-margin
+  p.no-margin
+    margin-bottom: 0.1em
+    margin-left: 0
+
+p.file
+  clear: both
+  display: block
+  padding-left: 35px !important
+  position: relative
+  i.pdf
+    background: url('/images/files.png') 0 0 no-repeat
+    display: block
+    height: 30px
+    left: 0px
+    overflow: hidden
+    position: absolute
+    width: 30px
+  i.doc
+    background-position: -30px 0
+    @extend i.pdf
+  i.odt
+    background-position: -60px 0
+    @extend i.pdf
+
+
+
+@include sticky-footer(250px)
+center
+  clear: both
+#footer
+  border-top: 4px solid $blue-light
+  padding-top: 25px
+  background-color: $blue-gray
+  h1, h2, h3
+    color: white
+  h2
+    margin-bottom: 0.25em
+  p
+    color: #e6e6e6
+    margin-bottom: 0.5em
+  a
+    color: #9dbbde
+  table
+    padding-left: 10%
+    width: 95%
+    td
+      vertical-align: top
+
+.agenda-title
+  font-weight: bold
+  font-size: 1.5em
+  margin-left: 1em
+table.agenda
+  border: 5px solid #eee
+  width: 100%
+  margin-bottom: 1.5em
+  tr.break
+    background-color: $gray - #777
+    color: white
+    font-style: italic
+  tr.session
+    font-size: 1.5em
+  tr
+    td
+      border: 1px solid #eee
+      vertical-align: top
+      h2
+        color: black !important
+        font-size: 1.2em
+        margin-bottom: 0.5em
+        line-height: 1em
+        font-family: Verdana !important
+    td.time
+      width: 100px
+      font-style: normal
+      font-weight: bold
+      text-align: center
+.hasCountdown
+  border: 1px solid $blue-dark !important
+  width: 60%
+  font-size: 100%
+  color: $blue-dark
+
+.countdown_rtl
+  direction: rtl
+
+.countdown_holding span
+  background-color: #ccc
+
+.countdown_row
+  clear: both
+  width: 100%
+  padding: 0px 2px
+  text-align: center
+
+.countdown_show1 .countdown_section
+  width: 98%
+
+.countdown_show2 .countdown_section
+  width: 48%
+
+.countdown_show3 .countdown_section
+  width: 32.5%
+
+.countdown_show4 .countdown_section
+  width: 24.5%
+
+.countdown_show5 .countdown_section
+  width: 19.5%
+
+.countdown_show6 .countdown_section
+  width: 16.25%
+
+.countdown_show7 .countdown_section
+  width: 14%
+
+.countdown_section
+  display: block
+  float: left
+  font-size: 75%
+  text-align: center
+
+.countdown_amount
+  font-size: 200%
+
+.countdown_descr
+  display: block
+  width: 100%
+
+
+
+.speakers
+  list-style: none
+  margin: 0
+  padding: 0
+  li
+    clear: both
+    padding-bottom: 1em
+    .gray-bg
+      clear: both
+      padding: 5px
+      table
+        height: 100%
+    div
+      margin: 0
+      padding: 0
+      height: 100%
+      line-htight: 0.5em
+    .name
+      font-size: 1.5em
+      font-family: Verdana
+      line-height: 1em
+      padding-bottom: 5px
+      color: $blue-dark
+    .position
+      font-weight: bold
+    .job
+      font-weight: normal
+    img
+      float: left
+      border: 3px solid $blue-dark
+      margin-right: 5px
+    .flag
+      height: 16px
+      float: left
+      img
+        border: none
+        height: inherit
+
+.agenda-speakers
+  @extend .speakers
+  li
+    .gray-bg
+      padding: 0
+    .name
+      font-size: 1.2em
+
+.full-list
+  list-style: none
+  li
+    padding-bottom: 2em
+    clear: both
+    margin-bottom: 2em
+    h2
+      font-size: 1.5em
+      line-height: 1.1em
+    img
+      float: right
+      margin-right: 1em
+      margin-bottom: 2em
+    table
+      tr
+        vertical-align: top
+        td
+          vertical-align: top

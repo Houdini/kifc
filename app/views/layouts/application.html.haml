@@ -1,0 +1,118 @@
+!!!Strict
+%html
+  %head
+    %title
+      KIFC
+    = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'compiled/print.css', :media => 'print'
+    /[if IE]
+      = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'compiled/application.css'
+    = stylesheet_link_tag 'jquery.countdown'
+  %body.bp
+    .menu
+      .nav
+        %ul
+          %li.active
+            %span
+              Главная
+          %li
+            %a(href="#")
+              Организатор
+          %li.reg-li
+            %a(href="#")
+              Регистрация
+          %li
+            %a(href="#")
+              Партнеры
+          %li
+            %a(href="#")
+              Программа
+          %li
+            %a(href="#")
+              Спонсоры
+          %li
+            %a(href="#")
+              Медиа-партнеры
+          %li.addon
+            %a(href="#")
+              English
+    .blue-white-gradient
+
+    =# #bg
+    =#  %img(src="/images/32.jpg")
+    .body-wrapper
+      %h1.logo
+        %img(src="http://kifc.asia/images/astana-city-arms.jpg" width="70" style="float: left; margin-top: -15px; padding-right: 10px")
+        %a(href="/")
+          Kazahstan Islamic Finance Conference
+      .main-text
+        = yield
+    %center
+      %h2
+        Приглашаем все заинтересованные организации принять участие в конференции 2011 года
+        
+    #footer
+      %table
+        %tr
+          %td(width="33%")
+            %h3
+              Организационный партнер
+            %a(href="http://bankconference.ru")
+              %img(src="http://bankconference.kifc.asia/images/logos/56/logo_bankconference.png")
+            %br
+            %br
+            %br
+            %p
+              %strong
+                Управление проектом
+              %br
+              Владимир Голубь
+              %a(href="mailto:vg@bankconference.ru")
+                vg@bankconference.ru
+          %td(width="33%")
+            %h3
+              Контакты
+            %p
+              %strong
+                Тел./факс: +7 (499) 240-27-35, +7 (499) 240-05-47
+
+            %p
+              Электронная почта:
+              %a(href="mailto:info@bankconference.ru")
+                info@bankconference.ru
+
+            %p
+              %strong
+                Спикеры и спонсоры
+              %br
+              Татьяна Кантерман
+              %a(href="mailto:t.kanterman@bankconference.ru")
+                t.kanterman@bankconference.ru
+
+            %p
+              %strong
+                Участие в конференции
+              %br
+              Елена Макарова
+              %a(href="mailto:emakarova@bankconference.ru")
+                emakarova@bankconference.ru
+
+          %td(width="33%")
+            %a(href="")
+              %img(src="http://islamicbanking.ru/images/logo_rus.png" width="300px")
+            %p
+              26-27 мая 2011 года
+            %br
+            %p
+              %span
+                Сайт сделан в
+                %a(href="http://code-for-life.com")
+                  %img(src="/images/code-for-life.png" style="position: relative; top: 8px; left: 2px")
+
+
+
+    = javascript_include_tag 'http://yandex.st/jquery/1.4.4/jquery.min.js'
+    = javascript_include_tag 'jquery.countdown'
+    = javascript_include_tag 'jquery.countdown-ru'
+    = javascript_include_tag 'application'
